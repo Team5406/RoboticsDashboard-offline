@@ -1,0 +1,150 @@
+h1 {
+  margin-top:100px;
+  font-size: 100px
+}
+
+.team-next {
+  font-size: 60px
+}
+
+.match-next {
+  margin-top: 150px;
+  font-size: 90px;
+  line-height: 0.7;
+  margin-bottom: 150px;
+}
+
+.vs-next {
+  margin-top: 10px;
+  font-size: 50px;
+  line-height: 0.7;
+  margin-bottom: 10px;
+}
+
+.red-next {
+  color: red;
+  font-weight:bold;
+}
+
+.blue-next {
+  color: blue;
+  font-weight:bold;
+}
+
+.us-next {
+  font-style:italic;
+  text-decoration: underline;
+}
+
+.time-next {
+  font-size: 50px
+}
+
+
+.team-schedule-text {
+  font-size: 38px;
+  padding: 0;
+  margin:27px 0;
+  background-color: transparent;
+  border:none;
+  text-align: center;
+  line-height: 0.9;
+}
+
+.match-schedule {
+  line-height: 0.5;
+  margin-top:15px;
+  margin-bottom:15px;
+}
+
+.match-schedule-text {
+  font-size: 30px;
+  padding: 0;
+  margin:0;
+  background-color: transparent;
+  border:none;
+  text-align: center;
+  line-height: 0.9;
+}
+
+.red-schedule {
+  color: red;
+  font-weight:bold;
+}
+
+.blue-schedule {
+  color: blue;
+  font-weight:bold;
+}
+
+.us-schedule {
+  font-style:italic;
+  text-decoration: underline;
+}
+
+.time-schedule {
+  font-size: 30px
+}
+
+.time-schedule-text {
+  font-size: 30px;
+  padding: 0;
+  margin:0;
+  background-color: transparent;
+  border:none;
+  text-align: center;
+  line-height: 0.9;
+}
+
+.rp-schedule {
+  font-size: 30px;
+  line-height: 0.9;
+  margin-bottom:10px;
+
+}
+
+.rp-schedule-text {
+  font-size: 30px;
+  padding: 0;
+  margin:0;
+  background-color: transparent;
+  border:none;
+  text-align: center;
+  line-height: 0.9;
+  appearance: none;
+  --bs-form-select-bg-img: none;
+}
+
+.result-schedule {
+  font-size: 30px
+}
+
+label {
+  display: inline-block;
+  width: 150px;
+}
+
+.result-schedule-text {
+  font-size: 30px;
+  padding: 0;
+  margin:0;
+  background-color: transparent;
+  border:none;
+  text-align: center;
+  line-height: 0.9;
+  appearance: none;
+  --bs-form-select-bg-img: none;
+
+}
+
+.row-striped:nth-of-type(odd){
+  background-color: #efefef;
+}
+
+.row-striped:nth-of-type(even){
+  background-color: #ffffff;
+}
+
+.matches {
+  border-right: 5px dashed #333;
+}
