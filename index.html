@@ -1,13 +1,114 @@
-<html>
+<!doctype html>
+<html lang="en">
+
 <head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Celt-X Match Schedule</title>
+  <link href="css/bootstrap.min.css" rel="stylesheet">
+  <link href="css/index.css" rel="stylesheet">
 </head>
-<body>
-    <button id="checkOnline">Check Online</button>
-    <button id="getTBAData">Get TBA Data</button>
+
+<body class="container-fluid">
+
+    <div class="col-lg-12 mx-auto p-3">
+  
+      <main>
+        <div class="row">
+          <div id="matches" class="col-md-8 text-center matches"></div>
+  
+          <div class="col-md-4 text-center offset-8 fixed-top">
+            <div class="row text-end">
+                <div id="lastTBAUpdate" class="col-md-8" style="padding-top:20px"></div>
+                <div class="col-md-4"><span><img id="getTBAData" height="64" src="img/tbaupdate.png" /></span> <span><img height="64" id="checkOnline" src="img/offline.png" /></span> </div>
+
+            </div>
+
+
+        
+            <h1>Next Up</h1>
+            <p class="match-next"><span id="match-number"></span>
+              <br>
+              <span class="time-next text-muted text-italics"></span>
+            </p>
+            <div class="row text-bold">
+              <div id="red1" class="col-md-4 team-next red-next"></div>
+              <div id="red2"  class="col-md-4 team-next red-next"></div>
+              <div id="red3"  class="col-md-4 team-next red-next"></div>
+            </div>
+  
+            <p class="vs-next">vs.</p>
+  
+            <div class="row">
+              <div id="blue1"  class="col-md-4 team-next blue-next"></div>
+              <div id="blue2"  class="col-md-4 team-next blue-next"></div>
+              <div id="blue3"  class="col-md-4 team-next blue-next"></div>
+            </div>
+  
+          </div>
+        </div>
+      </main>
+    </div>
+  
+    <!-- Templates -->
+<script id="matchScheduleTemplate" type="x-jsrender">
+    <div class="row row-striped" id="{{:rowid}}">
+        <div class="col-md-2  align-self-center">
+          <div class="row">
+            <div class="col-md-12 match-schedule"><input type="text" value="{{:comp_level}}-{{:match_number}}" class="form-control match-schedule-text" id="match-{{:rowid}}">
+              
+              <span class="col-md-12 time-schedule"><input type="text" value="{{:time}}"class="form-control time-schedule-text" id="time-{{:rowid}}"></span>
+            </div>
+          </div>
+
+        </div>
+        <div class="col-md-9"><div class="row">
+
+        <div class="col-md-2 team-schedule align-self-center"><input type="text" class="team-red1 red-schedule form-control team-schedule-text {{if team==alliances.red[0]}}us-schedule{{/if}}" id="team-red1-{{:rowid}}" value="{{:alliances.red[0]}}"></div>
+        <div class="col-md-2 team-schedule align-self-center"><input type="text" class="team-red2 red-schedule form-control team-schedule-text {{if team==alliances.red[1]}}us-schedule{{/if}}" id="team-red2-{{:rowid}}" value="{{:alliances.red[1]}}"></div>
+        <div class="col-md-2 team-schedule align-self-center"><input type="text" class="team-red3 red-schedule form-control team-schedule-text {{if team==alliances.red[2]}}us-schedule{{/if}}" id="team1-red3-{{:rowid}}" value="{{:alliances.red[2]}}"></div>
+        <div class="col-md-2 team-schedule  align-self-center"><input type="text" class="team-blue1 blue-schedule form-control team-schedule-text {{if team==alliances.blue[0]}}us-schedule{{/if}}" id="team1-blue1-{{:rowid}}" value="{{:alliances.blue[0]}}"></div>
+        <div class="col-md-2 team-schedule  align-self-center"><input type="text" class="team-blue2 blue-schedule form-control team-schedule-text {{if team==alliances.blue[1]}}us-schedule{{/if}}" id="team1-blue2-{{:rowid}}" value="{{:alliances.blue[1]}}"></div>
+        <div class="col-md-2 team-schedule  align-self-center"><input type="text" class="team-blue3 blue-schedule form-control team-schedule-text {{if team==alliances.blue[2]}}us-schedule{{/if}}" id="team1-blue3-{{:rowid}}" value="{{:alliances.blue[2]}}"></div>
+        </div>
+        </div>
+        <div class="col-md-1 align-self-center">
+          {{if comp_level=="qm"}}
+          <div class="row">
+            <div class="col-md-12 rp-schedule">
+                              
+              <select class="form-select rp-schedule-text" id="rp-{{:rowid}}">
+                <option></option>
+                {{for start=0 end=5 itemVar="~rankingpoints"}}
+
+                <option value="{{:~rankingpoints}}" {{if ~rankingpoints==~root.rp}} selected {{/if}}>{{:~rankingpoints}} RP</option>
+                {{/for}}
+              </select>
+
+
+            </div>
+          </div>
+          {{/if}}
+          <div class="row">
+            <div class="col-md-12 result-schedule">
+              <select class="form-select result-schedule-text" id="result--{{:rowid}}">
+                <option></option>
+                {{if won}}selected{{/if}}
+                <option value="win" {{if won===true}}selected{{/if}}>Win</option>
+                <option value="loss" {{if won===false}}selected{{/if}}>Loss</option>
+                <option value="tie">Tie</option>
+              </select>
+            </div>
+          </div>
+        </div>
+      </div>
+</script>
     
     <script src="js/jquery-3.7.1.min.js"></script>
-    <script src="js/lodash.js"></script>
+    <script src="js/bootstrap.bundle.min.js"></script>
 
+    <script src="js/lodash.js"></script>
+    <script src="js/jsrender.min.js"></script>
     <script src="js/apikey.js"></script>
     <script src="js/dashboard.js" ></script>
 </body>

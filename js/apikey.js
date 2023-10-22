@@ -1,1 +1,1 @@
-const TBA_API_KEY = "**REMOVED**";
+const TBA_API_KEY = "***REMOVED***";
