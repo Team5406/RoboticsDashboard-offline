@@ -24,6 +24,7 @@ $(function(){
     updateTBAData();
     setInterval(checkOnline, 30000); //every 30s
     setInterval(updateTBAData, 300000); //every 300s
+    setInterval(updateTime, 1000); //every 1s
 
 
     $('#checkOnline').on('click', checkOnline);
@@ -45,6 +46,17 @@ function updateTBAData(){
         $('#checkOnline').attr("src", "img/offline.png");
     }
     return online;
+  }
+
+  function updateTime(){
+    var currentTime = new Date().toLocaleTimeString('en-US', {
+        timeZone: eventTimeZone,
+        hour12: true,
+        hour: "numeric", 
+        minute: "2-digit",
+        second: "2-digit"
+    });
+    $("#currentTime").text("Time: " + currentTime);
   }
 
 
