@@ -1,7 +1,33 @@
-var eventKey = "2023nyrr";
 var eventTimeZone = "America/Toronto"
-var teams = ["5406", "9996"];
+// var teams = ["5406", "9996"];
+var teams = [];
 var matchData = Array();
+
+if (localStorage.getItem("eventKey") == null){
+  var eventKey = "";
+}
+else{
+  var eventKey = localStorage.getItem("eventKey");
+}
+
+if (localStorage.getItem("teams") == null){
+  var teams = [];
+}
+else{
+  var teams = JSON.parse(localStorage.getItem("teams"));
+}
+
+$("#eventKey").change(function() {
+  eventKey = $(this).val(); // update eventKey variable when #eventKey changes
+  console.log(eventKey);
+  localStorage.setItem("eventKey", eventKey); // save eventKey to localStorage
+});
+
+$("#teams").change(function() {
+  teams = $(this).val().split(", "); // update teams variable when #teams changes
+  console.log(teams);
+  localStorage.setItem("teams", JSON.stringify(teams)); // save teams to localStorage
+});
 
 $(function(){
 
@@ -23,7 +49,7 @@ $(function(){
     checkOnline();
     updateTBAData();
     setInterval(checkOnline, 30000); //every 30s
-    setInterval(updateTBAData, 300000); //every 300s
+    setInterval(updateTBAData, 300000); //every 5m
     setInterval(updateTime, 1000); //every 1s
 
 
@@ -62,6 +88,7 @@ function updateTBAData(){
 
   
 function getTBAData(){
+      console.log(eventKey);
       $.ajax({
           method: "GET",
           url: "https://www.thebluealliance.com/api/v3/event/"+eventKey,
