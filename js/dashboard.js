@@ -1,6 +1,6 @@
 var eventTimeZone = "America/Toronto"
 // var teams = ["5406", "9996"];
-var teams = [];
+// var teams = [];
 var matchData = Array();
 
 if (localStorage.getItem("eventKey") == null){
@@ -17,17 +17,6 @@ else{
   var teams = JSON.parse(localStorage.getItem("teams"));
 }
 
-$("#eventKey").change(function() {
-  eventKey = $(this).val(); // update eventKey variable when #eventKey changes
-  console.log(eventKey);
-  localStorage.setItem("eventKey", eventKey); // save eventKey to localStorage
-});
-
-$("#teams").change(function() {
-  teams = $(this).val().split(", "); // update teams variable when #teams changes
-  console.log(teams);
-  localStorage.setItem("teams", JSON.stringify(teams)); // save teams to localStorage
-});
 
 $(function(){
 
@@ -48,15 +37,39 @@ $(function(){
 
     checkOnline();
     updateTBAData();
+    updateTime();
     setInterval(checkOnline, 30000); //every 30s
     setInterval(updateTBAData, 300000); //every 5m
-    setInterval(updateTime, 1000); //every 1s
+    setInterval(updateTime, 60000); //every 1m
 
 
     $('#checkOnline').on('click', checkOnline);
     $('#getTBAData').on('click', getTBAData);
-    
-     
+
+    $('#saveButton').click(function(){
+      if($('#event-key').val() != eventKey){
+      eventKey = $('#event-key').val(); // update eventKey variable when #eventKey changes
+      console.log(eventKey);
+      localStorage.setItem("eventKey", eventKey); // save eventKey to localStorage
+      }
+      else if($('#event-key').val() == ""){
+        alert("Please enter an event key")
+      }
+      
+      if($('#teams-list').val() != teams){
+      teams = $('#teams-list').val().split(", "); // update teams variable when #teams changes
+      console.log(teams);
+      localStorage.setItem("teams", JSON.stringify(teams)); // save teams to localStorage
+      }
+      else if($('#teams-list').val() == ""){
+        alert("Please enter team numbers")
+      }
+
+      updateTBAData(); // refresh TBA data
+
+      $('#settingsModal').modal('hide'); // hide settings modal after saved
+   });
+
 function updateTBAData(){
     if(checkOnline()){
         getTBAData();
@@ -80,10 +93,10 @@ function updateTBAData(){
         hour12: true,
         hour: "numeric", 
         minute: "2-digit",
-        second: "2-digit"
     });
     $("#currentTime").text("Time: " + currentTime);
   }
+
 
 
   
