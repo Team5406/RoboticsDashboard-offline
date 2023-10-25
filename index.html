@@ -10,9 +10,6 @@
 </head>
 
 <!-- Button trigger modal -->
-<span><button type="button" data-bs-toggle="modal" data-bs-target="#settingsModal">
-  <img src="img/bars-solid.svg" alt="Settings Modal" height="64">
-</button></span>
 
 <!-- Modal -->
 <div class="modal fade" id="settingsModal" tabindex="-1" aria-labelledby="settingsModalLabel" aria-hidden="true">
@@ -53,8 +50,8 @@
           <div id="matches" class="col-md-8 text-center matches"></div>
           <div class="col-md-4 text-center offset-8 fixed-top">
             <div class="row text-end">
-                <div id="lastTBAUpdate" class="col-md fs-5 text-nowrap" style="padding-top:20px"></div>
-                <div class="col-md-4"><span><button><img id="getTBAData" height="64" src="img/tbaupdate.png" /></span></button><span><button><img height="64" id="checkOnline" src="img/offline.png" /></span></button></div>
+              <div id="lastTBAUpdate" class="col-md-6 fs-5 text-nowrap" style="padding-top:20px"></div>
+              <div class="col-md-6"><span><button><img id="getTBAData"  height="64" src="img/tbaupdate.png" /></span></button><span><button><img height="64" id="checkOnline" src="img/offline.png" /></span></button><span><button id="settingsModalButton" type="button" data-bs-toggle="modal" data-bs-target="#settingsModal"><img src="img/gear-solid.svg" alt="Settings Modal" height="64"></button></span></div>
             </div>
 
         
@@ -77,7 +74,7 @@
               <div id="blue3"  class="col-md-4 team-next blue-next"></div>
             </div>
 
-            <div id="currentTime" class="col-md display-2 font-weight-bold text-nowrap" style="padding-top:60px;"></div>
+            <div id="currentTime" class="col-md text-nowrap" style="padding-top:60px;"></div>
   
           </div>
         </div>

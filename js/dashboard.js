@@ -40,7 +40,7 @@ $(function(){
     updateTime();
     setInterval(checkOnline, 30000); //every 30s
     setInterval(updateTBAData, 300000); //every 5m
-    setInterval(updateTime, 60000); //every 1m
+    setInterval(updateTime, 1000); //every 1s
 
 
     $('#checkOnline').on('click', checkOnline);
@@ -94,7 +94,7 @@ function updateTBAData(){
         hour: "numeric", 
         minute: "2-digit",
     });
-    $("#currentTime").text("Time: " + currentTime);
+    $("#currentTime").text(currentTime);
   }
 
 
