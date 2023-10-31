@@ -9,7 +9,7 @@
   <link href="css/index.css" rel="stylesheet">
 </head>
 
-<!-- Modal -->
+<!-- Modals -->
 <div class="modal fade" id="settingsModal" tabindex="-1" aria-labelledby="settingsModalLabel" aria-hidden="true">
   <div class="modal-dialog">
     <div class="modal-content">
@@ -34,6 +34,85 @@
       <div class="modal-footer">
         <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
         <button id="saveButton" type="button" class="btn btn-primary">Save changes</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="modal fade" id="addRowModal" tabindex="-1" aria-labelledby="addRowModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h1 class="modal-title fs-4" id="addRowModalLabel">Add Row</h1>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        <div id="container-fluid">
+        <form>
+          <div class="mb-3">
+            <label for="match-number-row" class="col-form-label">Match Number</label>
+            <input type="text" class="form-control" id="match-number-row">
+          </div>
+        </form>
+        <form>
+          <div class="mb-3">
+            <label for="match-time-row" class="col-form-label">Match Time</label>
+            <input type="text" class="form-control" id="match-time-row">
+          </div>
+        </form>
+        <form>
+          <div class="mb-3">
+            <label for="red-1-row" class="col-form-label">Red 1</label>
+            <input type="text" class="form-control" id="red-1-row">
+          </div>
+        </form>
+        <form>
+          <div class="mb-3">
+            <label for="red-2-row" class="col-form-label">Red 2</label>
+            <input type="text" class="form-control" id="red-2-row">
+          </div>
+        </form>
+        <form>
+          <div class="mb-3">
+            <label for="red-3-row" class="col-form-label">Red 3</label>
+            <input type="text" class="form-control" id="red-3-row">
+          </div>
+        </form>
+        <form>
+          <div class="mb-3">
+            <label for="blue-1-row" class="col-form-label">Blue 1</label>
+            <input type="text" class="form-control" id="blue-1-row">
+          </div>
+        </form>
+        <form>
+          <div class="mb-3">
+            <label for="blue-2-row" class="col-form-label">Blue 2</label>
+            <input type="text" class="form-control" id="blue-2-row">
+          </div>
+        </form>
+        <form>
+          <div class="mb-3">
+            <label for="blue-3-row" class="col-form-label">Blue 3</label>
+            <input type="text" class="form-control" id="blue-3-row">
+          </div>
+        </form>
+        <form>
+          <div class="mb-3">
+            <label for="rp-row" class="col-form-label">RP</label>
+            <input type="text" class="form-control" id="rp-row">
+          </div>
+        </form>
+        <form>
+          <div class="mb-3">
+            <label for="win-loss-row" class="col-form-label">WIN/LOSS</label>
+            <input type="text" class="form-control" id="win-loss-row">
+          </div>
+        </form>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+        <button id="addRowButton" type="button" class="btn btn-primary">Save changes</button>
+       </div>
       </div>
     </div>
   </div>
@@ -132,6 +211,7 @@
         </div>
       </div>
 </script>
+<span><button id="addRowModalButton" type="button" data-bs-toggle="modal" data-bs-target="#addRowModal"><img src="img/gear-solid.svg" alt="Add Row Modal" height="64">ADD ROW</button></span>
     
     <script src="js/jquery-3.7.1.min.js"></script>
     <script src="js/bootstrap.bundle.min.js"></script>

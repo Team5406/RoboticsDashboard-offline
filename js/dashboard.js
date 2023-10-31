@@ -1,4 +1,5 @@
 var eventTimeZone = "America/Toronto"
+var automationEnabled = false;
 // var teams = ["5406", "9996"];
 // var teams = [];
 var matchData = Array();
@@ -70,11 +71,18 @@ $(function(){
       $('#settingsModal').modal('hide'); // hide settings modal after saved
    });
 
+   $('addRowButton').click(function(){
+      addRow();
+   });
+
 function updateTBAData(){
     if(checkOnline()){
         getTBAData();
     }
-}
+  }
+
+function addRow(){
+};
 
   function checkOnline(){
     var online = navigator.onLine; 
@@ -276,6 +284,10 @@ defer.done(function(){
         })
         updateNext();
       }
+
+      $(document).on('input', 'input', function() {
+        updateMatches();
+      });
   
       function updateTotalMatches(){
         totalMatches =0;
@@ -405,5 +417,7 @@ defer.done(function(){
 
      
     }
+
+
   
 });
